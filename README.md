@@ -10,13 +10,6 @@ José Andrés Germán Parra
 
 
 
-``` r
-> library(coda)
-> library(printr)
-> library(readr)
-> sal <- read.csv("salary.csv")
-> attach(sal)
-```
 
 # 1 RESUMEN
 
@@ -209,6 +202,11 @@ que lleva desde el grado superior dado el sexo, éstos están dados en las
 Figuras 5.2 y 5.3 respectivamente.
 
 ``` r
+> library(coda)
+> library(printr)
+> library(readr)
+> sal <- read.csv("salary.csv")
+> attach(sal)
 > library(lattice)
 > xyplot(log(salary)~year|sex, data=sal, type=c("p", "g", "r"),
 +        col=c('red', 'red'), xlab = 'Años en el rango actual',
