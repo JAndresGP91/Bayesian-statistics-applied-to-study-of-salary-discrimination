@@ -155,19 +155,12 @@ $$\boldsymbol{\beta}_{t+1} \mbox{ se genera de una }N_{k+1}(\hat{\boldsymbol{\be
 
 $$\sigma^2_{t+1} = \frac{(y-X \boldsymbol{\beta}_{t+1})^t(y-X \boldsymbol{\beta}_{t+1})}{w_{t+1}},   ~\text{donde } w_{t+1}\text{ se genera de una } \chi^2_{n}.$$
 
-Para muestrear los $\beta_{t+1, i}$ de una
-$N_k(\hat{\boldsymbol{\beta}}_{OLS},~ \sigma_t^2 (X^tX)^{-1})$, si
-$\sigma_t^2 (X^tX)^{-1}$ es definida postiva entonces existe
-$L_t=\sigma_t L^*$ tal que $LL^t=\sigma_t^2 (X^tX)^{-1}$, donde
-$L^*L^{*t}= (X^tX)^{-1}$. Luego
+Para muestrear los $\beta_{t+1, i}$ de una $N_k(\hat{\boldsymbol{\beta}}_{OLS},~ \sigma_t^2 (X^tX)^{-1})$, si $\sigma_t^2 (X^tX)^{-1}$ es definida postiva entonces existe $L_t=\sigma_t L^{*}$ tal que $LL^t=\sigma_t^2 (X^tX)^{-1}$, donde $L^*L^{*t}= (X^tX)^{-1}$. Luego
 
 $$L_t^{-1} \boldsymbol{\beta}_{t+1} \sim N_{k+1}(L_t^{-1}\hat{\boldsymbol{\beta}}_{OLS},~ \boldsymbol{I}),$$
 
 
-de esta forma $L^{-1}_t\boldsymbol{\beta}_{t+1}$ se obtiene de muestras
-aleatorias, y por lo tanto también $\boldsymbol{\beta}_{t+1}$. $L^*$ se utiliza
-para no calcular $L^{-1}_t$ en cada iteración, ya que
-$L^{-1}_t=\frac{1}{\sigma_t}L^{*-1}$.
+de esta forma $L^{-1}_t\boldsymbol{\beta}_{t+1}$ se obtiene de muestras aleatorias, y por lo tanto también $\boldsymbol{\beta}_{t+1}$. $L^{*}$ se utiliza para no calcular $L^{-1}_t$ en cada iteración, ya que $L^{-1}_t=\frac{1}{\sigma_t}L^{*-1}$.
 
 
 ## 5.6 Revisión de Gráficos
