@@ -87,7 +87,7 @@ Para explicar el comportamiento de la respuesta $y=\log$(salario), que
 se asume que se distribuye normalmente, se utiliza el modelo de
 regresión lineal múltiple
 
-$$y=\beta_0+ \beta_1x_1+\beta_2x_2+\cdots +\beta_kx_k+\varepsilon, ~~\varepsilon \sim N_n(0,~ \sigma^2 \pmb{I}),$$
+$$y=\beta_0+ \beta_1x_1+\beta_2x_2+\cdots +\beta_kx_k+\varepsilon, ~~\varepsilon \sim N_n(0,~ \sigma^2 \boldsymbol{I}),$$
 
 donde las covariables $x:=(x_1,~x_2,\ldots,x_k)$ serán determinadas por
 pruebas de hipótesis, y después también se toma en consideración lo que
@@ -109,36 +109,37 @@ $$l(\boldsymbol{\beta},~\sigma^2|y)=\frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \
 Se asume una distribución a priori no informativa para los parámetros,
 ya que no se cuenta con información,
 
-$$\pi(\pmb{\beta},~\sigma^2) \propto \frac{1}{\sigma^2}.$$
+$$\pi(\boldsymbol{\beta},~\sigma^2) \propto \frac{1}{\sigma^2}.$$
 
 ## 5.4 Distribuciones Condicionales a Posteriori
 
 Se derivan las distribuciones condicionales de los parámetros (esto se
-hizo en clase). Para $\pmb{\beta}$, se puede mostrar que
+hizo en clase). Para $\boldsymbol{\beta}$, se puede mostrar que
 
-$$(y-X \boldsymbol{\beta})^t(y-X \pmb{\beta})=\nu s^2+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}),~~ \nu=n-  \mbox{# de columnas de }X~\mbox{y}~s^2=\hat{\sigma}_{OLS}^2,$$
+$$(y-X \boldsymbol{\beta})^t(y-X \boldsymbol{\beta})=\nu s^2+ (\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS})^t(X^tX)(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS}),~~ \nu=n-  \text{\\# de columnas de }X~\mbox{y}~s^2=\hat{\sigma}_{OLS}^2,$$
+
 donde $\hat{\boldsymbol{\beta}}$ y $\hat{\sigma}_{OLS}^2$ son los
 estimadores de mínimos cuadrados ordinarios de $\boldsymbol{\beta}$ y
 $\sigma^2$.
 
-Para la distribución a posteriori condicional de $\pmb{\beta}$ dados
+Para la distribución a posteriori condicional de $\boldsymbol{\beta}$ dados
 $\sigma^2$ y $y$
 
 $$\begin{align*}
-\pi(\pmb{\beta},~\sigma^2|y) & \propto l(\pmb{\beta},~\sigma^2|y)\pi(\pmb{\beta},~\sigma^2) \\
-& \propto \frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t \frac{1}{\sigma^2}(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}) \right) \right] \cdot \frac{1}{\sigma^2} 
+\pi(\boldsymbol{\beta},~\sigma^2|y) & \propto l(\boldsymbol{\beta},~\sigma^2|y)\pi(\boldsymbol{\beta},~\sigma^2) \\
+& \propto \frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS})^t \frac{1}{\sigma^2}(X^tX)(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS}) \right) \right] \cdot \frac{1}{\sigma^2} 
 \end{align*}$$
 
 $$\begin{align*}
-\Rightarrow & \pi(\pmb{\beta}|y,~\sigma^2) \propto \frac{1}{(\sigma^2)^{n/2+1}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t (\sigma^2(X^tX)^{-1})^{-1}(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}) \right) \right] \\
- \Rightarrow & \pmb{\beta}|y,~\sigma^2 \sim N_{k+1}(\hat{\pmb{\beta}}_{OLS}, ~\sigma^2 (X^tX)^{-1}) 
+\Rightarrow & \pi(\boldsymbol{\beta}|y,~\sigma^2) \propto \frac{1}{(\sigma^2)^{n/2+1}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS})^t (\sigma^2(X^tX)^{-1})^{-1}(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS}) \right) \right] \\
+ \Rightarrow & \boldsymbol{\beta}|y,~\sigma^2 \sim N_{k+1}(\hat{\boldsymbol{\beta}}_{OLS}, ~\sigma^2 (X^tX)^{-1}) 
  \end{align*}.$$ Y para la distribución a posteriori condicional de
-$\sigma^2$ dados $\pmb{\beta}$ y $y$
+$\sigma^2$ dados $\boldsymbol{\beta}$ y $y$
 
-$$\pi(\sigma^2|y, ~\pmb{\beta}) \propto (\sigma^2)^{-\left( \frac{n}{2}-1 \right)} \exp \left[ -\frac{1}{2} (y- X \beta)^t\frac{1}{\sigma^2} (y- X \beta)\right].$$
+$$\pi(\sigma^2|y, ~\boldsymbol{\beta}) \propto (\sigma^2)^{-\left( \frac{n}{2}-1 \right)} \exp \left[ -\frac{1}{2} (y- X \beta)^t\frac{1}{\sigma^2} (y- X \beta)\right].$$
 El kernel de una distribución $\chi^2_k$, dado que $X=x$, es
 $x^{\frac{k}{2}-1}e^{-\frac{x}{2}}$, y sean
-$d:=(y-X\pmb{\beta})^t(y-X\pmb{\beta})$ y $z=\sigma^2$, luego
+$d:=(y-X\boldsymbol{\beta})^t(y-X\boldsymbol{\beta})$ y $z=\sigma^2$, luego
 
 $$f_Z(z) \propto  (z)^{-\left( \frac{n}{2}-1 \right)} \exp \left(-\frac{1}{2}d/z \right).$$
 Si $W=d/Z$, entonces
@@ -152,27 +153,27 @@ $$\begin{align*}
 & \Rightarrow w \sim \chi^2_n.
 \end{align*}$$
 
-Por lo tanto, para $\pmb{\beta}$ y $y$ dados,
+Por lo tanto, para $\boldsymbol{\beta}$ y $y$ dados,
 
-$$\frac{(y-X\pmb{\beta})^t(y-X\pmb{\beta})}{\sigma^2} \sim \chi^2_n.$$
+$$\frac{(y-X\boldsymbol{\beta})^t(y-X\boldsymbol{\beta})}{\sigma^2} \sim \chi^2_n.$$
 
 ## 5.5 Muestreo Gibbs
 
-Dados $\sigma^2_t$ y $\pmb{\beta}_t$,
+Dados $\sigma^2_t$ y $\boldsymbol{\beta}_t$,
 
-$$\pmb{\beta}_{t+1} \mbox{ se genera de una }N_{k+1}(\hat{\pmb{\beta}}_{OLS},~ \sigma_t^2 (X^tX)^{-1}),$$
+$$\boldsymbol{\beta}_{t+1} \mbox{ se genera de una }N_{k+1}(\hat{\boldsymbol{\beta}}_{OLS},~ \sigma_t^2 (X^tX)^{-1}),$$
 
-$$\sigma^2_{t+1} = \frac{(y-X \pmb{\beta}_{t+1})^t(y-X \pmb{\beta}_{t+1})}{w_{t+1}},   ~\text{donde } w_{t+1}\text{ se genera de una } \chi^2_{n}.$$
+$$\sigma^2_{t+1} = \frac{(y-X \boldsymbol{\beta}_{t+1})^t(y-X \boldsymbol{\beta}_{t+1})}{w_{t+1}},   ~\text{donde } w_{t+1}\text{ se genera de una } \chi^2_{n}.$$
 
 Para muestrear los $\beta_{t+1, i}$ de una
-$N_k(\hat{\pmb{\beta}}_{OLS},~ \sigma_t^2 (X^tX)^{-1})$, si
+$N_k(\hat{\boldsymbol{\beta}}_{OLS},~ \sigma_t^2 (X^tX)^{-1})$, si
 $\sigma_t^2 (X^tX)^{-1}$ es definida postiva entonces existe
 $L_t=\sigma_t L^*$ tal que $LL^t=\sigma_t^2 (X^tX)^{-1}$, donde
 $L^*L^{*t}= (X^tX)^{-1}$, luego
 
-$$L_t^{-1} \pmb{\beta}_{t+1} \sim N_{k+1}(L_t^{-1}\hat{\pmb{\beta}}_{OLS},~ \pmb{I}),$$
-de esta forma $L^{-1}_t\pmb{\beta}_{t+1}$ se obtiene de muestras
-aleatorias, y por lo tanto también $\pmb{\beta}_{t+1}$. $L^*$ se utiliza
+$$L_t^{-1} \boldsymbol{\beta}_{t+1} \sim N_{k+1}(L_t^{-1}\hat{\boldsymbol{\beta}}_{OLS},~ \boldsymbol{I}),$$
+de esta forma $L^{-1}_t\boldsymbol{\beta}_{t+1}$ se obtiene de muestras
+aleatorias, y por lo tanto también $\boldsymbol{\beta}_{t+1}$. $L^*$ se utiliza
 para no calcular $L^{-1}_t$ en cada iteración, ya que
 $L^{-1}_t=\frac{1}{\sigma_t}L^{*-1}$.
 
