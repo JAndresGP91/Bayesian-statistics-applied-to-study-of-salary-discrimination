@@ -118,22 +118,19 @@ hizo en clase). Para $\boldsymbol{\beta}$, se puede mostrar que
 
 $$(y-X \boldsymbol{\beta})^t(y-X \boldsymbol{\beta})=\nu s^2+ (\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS})^t(X^tX)(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS}),~~ \nu=n-  \text{\\# de columnas de }X~\mbox{y}~s^2=\hat{\sigma}_{OLS}^2,$$
 
-donde $\hat{\boldsymbol{\beta}}$ y $\hat{\sigma}_{OLS}^2$ son los
-estimadores de mínimos cuadrados ordinarios de $\boldsymbol{\beta}$ y
-$\sigma^2$.
+donde $\hat{\boldsymbol{\beta}}_{OLS}$ y $\hat{\sigma}_{OLS}^2$ son los estimadores de mínimos cuadrados ordinarios de $\boldsymbol{\beta}$ y $\sigma^2$.
 
-Para la distribución a posteriori condicional de $\boldsymbol{\beta}$ dados
-$\sigma^2$ y $y$
+Para la distribución a posteriori condicional de $\boldsymbol{\beta}$ dados $\sigma^2$ y $y$
 
-$$\begin{align*}
-\pi(\boldsymbol{\beta},~\sigma^2|y) & \propto l(\boldsymbol{\beta},~\sigma^2|y)\pi(\boldsymbol{\beta},~\sigma^2) \\
-& \propto \frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS})^t \frac{1}{\sigma^2}(X^tX)(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS}) \right) \right] \cdot \frac{1}{\sigma^2} 
-\end{align*}$$
+$$\begin{align*}\pi(\boldsymbol{\beta},~\sigma^2|y) & \propto l(\boldsymbol{\beta},~\sigma^2|y)\pi(\boldsymbol{\beta},~\sigma^2) \\
+& \propto \frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS})^t \frac{1}{\sigma^2}(X^tX)(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS}) \right) \right] \cdot \frac{1}{\sigma^2} \end{align*}$$
 
 $$\begin{align*}
 \Rightarrow & \pi(\boldsymbol{\beta}|y,~\sigma^2) \propto \frac{1}{(\sigma^2)^{n/2+1}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS})^t (\sigma^2(X^tX)^{-1})^{-1}(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS}) \right) \right] \\
  \Rightarrow & \boldsymbol{\beta}|y,~\sigma^2 \sim N_{k+1}(\hat{\boldsymbol{\beta}}_{OLS}, ~\sigma^2 (X^tX)^{-1}) 
- \end{align*}.$$ Y para la distribución a posteriori condicional de
+ \end{align*}.$$ 
+ 
+ Y para la distribución a posteriori condicional de
 $\sigma^2$ dados $\boldsymbol{\beta}$ y $y$
 
 $$\pi(\sigma^2|y, ~\boldsymbol{\beta}) \propto (\sigma^2)^{-\left( \frac{n}{2}-1 \right)} \exp \left[ -\frac{1}{2} (y- X \beta)^t\frac{1}{\sigma^2} (y- X \beta)\right].$$
@@ -169,13 +166,16 @@ Para muestrear los $\beta_{t+1, i}$ de una
 $N_k(\hat{\boldsymbol{\beta}}_{OLS},~ \sigma_t^2 (X^tX)^{-1})$, si
 $\sigma_t^2 (X^tX)^{-1}$ es definida postiva entonces existe
 $L_t=\sigma_t L^*$ tal que $LL^t=\sigma_t^2 (X^tX)^{-1}$, donde
-$L^*L^{*t}= (X^tX)^{-1}$, luego
+$L^*L^{*t}= (X^tX)^{-1}$. Luego
 
 $$L_t^{-1} \boldsymbol{\beta}_{t+1} \sim N_{k+1}(L_t^{-1}\hat{\boldsymbol{\beta}}_{OLS},~ \boldsymbol{I}),$$
+
+
 de esta forma $L^{-1}_t\boldsymbol{\beta}_{t+1}$ se obtiene de muestras
 aleatorias, y por lo tanto también $\boldsymbol{\beta}_{t+1}$. $L^*$ se utiliza
 para no calcular $L^{-1}_t$ en cada iteración, ya que
 $L^{-1}_t=\frac{1}{\sigma_t}L^{*-1}$.
+
 
 ## 5.6 Revisión de Gráficos
 
@@ -312,10 +312,12 @@ En R, se especifican estas variables,
 El primer modelo que se ajusta es el más general, donde se consideran
 interacciones, este es el modelo (1).
 
-$$\begin{align*} \tag{1}
-E(y|x) & = \beta_0+ \beta_1d_1 + \beta_2 d_1d_2 + \beta_3 d_1d_3 + \beta_4 d_1d_4 + \beta_5 d_1 \times years.deg \\
-& +  \beta_6d_1  \times years.rank + \beta_7 d_2  +  \beta_8 d_3+ \beta_9d_4 + \beta_{10} years.deg + \beta_{11}d_2  \times years.deg+ \beta_{12}years.rank
-\end{align*}$$
+$$\begin{aligned}
+E(y|x)  =& \beta_0+ \beta_1d_1 + \beta_2 d_1d_2 + \beta_3 d_1d_3 + \beta_4 d_1d_4 + \beta_5 d_1 \times \text{years.deg} \\
+&+  \beta_6d_1  \times \text{years.rank} + \beta_7 d_2  +  \beta_8 d_3+ \beta_9d_4 + \beta_{10} \text{years.deg} \\
+&+ \beta_{11}d_2  \times \text{years.deg}+ \beta_{12} \text{years.rank}. \quad \text{(1)}
+\end{aligned}$$
+
 
 El código para obtener cadena de Markov se presenta en el anexo.
 
@@ -398,7 +400,7 @@ Dado que el factor grado de estudios y los años desde el grado superior
 pueden ser importantes, porque reflejan la experiencia, se ajusta el
 modelo (2).
 
-$$\begin{equation} \tag{2} E(y|x)=\beta_0+\beta_1d_1+ \beta_2d_2+ \beta_3d_3+\beta_4d_4+\beta_5years.deg+\beta_6years.rank+\beta_7 d1 \times years.deg + \beta_8 d1 \times years.rank
+$$\begin{equation} E(y|x)=\beta_0+\beta_1d_1+ \beta_2d_2+ \beta_3d_3+\beta_4d_4+\beta_5years.deg+\beta_6years.rank+\beta_7 d1 \times years.deg + \beta_8 d1 \times years.rank  \quad \text{(2)}
 \end{equation}$$
 
 Las estimaciones de los coeficientes de regresión y varianza se dan a
@@ -446,7 +448,7 @@ Ahora, se ajusta el modelo sin utilizar el factor grado de estudios y
 sus interacciones, y tampoco los años en el grado superior, dicho modelo
 es el (3).
 
-$$\begin{equation} \tag{3} E(y|x)=\beta_0+\beta_1d_1+  \beta_2d_3+\beta_3d_4+\beta_5years.rank \end{equation}$$
+$$\begin{equation} E(y|x)=\beta_0+\beta_1d_1+  \beta_2d_3+\beta_3d_4+\beta_5years.rank  \quad \text{(3)} \end{equation}$$
 
 Las estimaciones de los coeficientes de regresión y la varianza se dan a
 continuación.
