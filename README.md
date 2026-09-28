@@ -10,6 +10,14 @@ José Andrés Germán Parra
 
 
 
+``` r
+> library(coda)
+> library(printr)
+> library(readr)
+> sal <- read.csv("salary.csv")
+> attach(sal)
+```
+
 # 1 RESUMEN
 
 En este proyecto se abordó el tema de la discriminación salarial en una
@@ -94,7 +102,7 @@ niega o nó lo que se denuncia con un nivel de confianza dado
 Dados los datos $y$, se tiene que la distribución de muestreo está dada
 por
 
-$$  l(\pmb{\beta},~\sigma^2|y)=\frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[ -\frac{1}{2\sigma^{2}}(y- X \beta)^t(y-X \beta ) \right].$$
+$$l(\boldsymbol{\beta},~\sigma^2|y)=\frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[ -\frac{1}{2\sigma^{2}}(y- X \beta)^t(y-X \beta ) \right].$$
 
 ## 5.3 Distribución a Priori de los Parámetros
 
@@ -108,16 +116,17 @@ $$\pi(\pmb{\beta},~\sigma^2) \propto \frac{1}{\sigma^2}.$$
 Se derivan las distribuciones condicionales de los parámetros (esto se
 hizo en clase). Para $\pmb{\beta}$, se puede mostrar que
 
-$$(y-X \pmb{\beta})^t(y-X \pmb{\beta})=\nu s^2+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}),~~ \nu=n- \text{\\# de columnas de } X~\mbox{y}~s^2=\hat{\sigma}_{OLS}^2,$$
+$$(y-X \boldsymbol{\beta})^t(y-X \pmb{\beta})=\nu s^2+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}),~~ \nu=n-  \mbox{# de columnas de }X~\mbox{y}~s^2=\hat{\sigma}_{OLS}^2,$$
+donde $\hat{\boldsymbol{\beta}}$ y $\hat{\sigma}_{OLS}^2$ son los
+estimadores de mínimos cuadrados ordinarios de $\boldsymbol{\beta}$ y
+$\sigma^2$.
 
-donde $\hat{\boldsymbol{\beta}}_{OLS}$ y $\sigma_{OLS}^2$ son los estimadores de mínimos cuadrados ordinarios. 
-
-Para la distribución a posteriori condicional de $\pmb{\beta}$
-dados $\sigma^2$ y $y$
+Para la distribución a posteriori condicional de $\pmb{\beta}$ dados
+$\sigma^2$ y $y$
 
 $$\begin{align*}
 \pi(\pmb{\beta},~\sigma^2|y) & \propto l(\pmb{\beta},~\sigma^2|y)\pi(\pmb{\beta},~\sigma^2) \\
-& \propto \frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[-\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t \frac{1}{\sigma^2}(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}) \right) \right] \cdot \frac{1}{\sigma^2} 
+& \propto \frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t \frac{1}{\sigma^2}(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}) \right) \right] \cdot \frac{1}{\sigma^2} 
 \end{align*}$$
 
 $$\begin{align*}
@@ -175,11 +184,11 @@ dados en la Figura 5.1.
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-1-1.png" alt="Gráficos de caja de los tres factores"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-2-1.png" alt="Gráficos de caja de los tres factores"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-1"></span>Figura 5.1: Gráficos de caja de
+<span id="fig:unnamed-chunk-2"></span>Figura 5.1: Gráficos de caja de
 los tres factores
 
 </p>
@@ -207,11 +216,11 @@ Figuras 5.2 y 5.3 respectivamente.
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-2-1.png" alt="log(salario) contra años en rango actual dado el sexo"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-3-1.png" alt="log(salario) contra años en rango actual dado el sexo"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-2"></span>Figura 5.2: log(salario) contra
+<span id="fig:unnamed-chunk-3"></span>Figura 5.2: log(salario) contra
 años en rango actual dado el sexo
 
 </p>
@@ -225,11 +234,11 @@ años en rango actual dado el sexo
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-3-1.png" alt="log(salario) contra años desde el grado superior dado el sexo"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-4-1.png" alt="log(salario) contra años desde el grado superior dado el sexo"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-3"></span>Figura 5.3: log(salario) contra
+<span id="fig:unnamed-chunk-4"></span>Figura 5.3: log(salario) contra
 años desde el grado superior dado el sexo
 
 </p>
@@ -419,11 +428,11 @@ están en la Figura 5.5.
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-13-1.png" alt="Autocorrelaciones y Running Means de sigma2 para el modelo (2)"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-14-1.png" alt="Autocorrelaciones y Running Means de sigma2 para el modelo (2)"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-13"></span>Figura 5.5: Autocorrelaciones y
+<span id="fig:unnamed-chunk-14"></span>Figura 5.5: Autocorrelaciones y
 Running Means de sigma2 para el modelo (2)
 
 </p>
@@ -463,11 +472,11 @@ encuentran en la Figura 5.6.
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-19-1.png" alt="Autocorrelaciones y Running Means de sigma2 para modelo (3)"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-20-1.png" alt="Autocorrelaciones y Running Means de sigma2 para modelo (3)"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-19"></span>Figura 5.6: Autocorrelaciones y
+<span id="fig:unnamed-chunk-20"></span>Figura 5.6: Autocorrelaciones y
 Running Means de sigma2 para modelo (3)
 
 </p>
@@ -509,11 +518,11 @@ están dadas en la Figura 5.7 junto con la gráfica de “Running Means”,
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-25-1.png" alt="Autocorrelaciones y Running Means de sigma2 para el modelo (4)"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-26-1.png" alt="Autocorrelaciones y Running Means de sigma2 para el modelo (4)"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-25"></span>Figura 5.7: Autocorrelaciones y
+<span id="fig:unnamed-chunk-26"></span>Figura 5.7: Autocorrelaciones y
 Running Means de sigma2 para el modelo (4)
 
 </p>
@@ -621,11 +630,11 @@ La cadena se guarda en un archivo txt.
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-30-1.png" alt="Autocorrelaciones y Running Means de beta_1 para el modelo (1)"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-31-1.png" alt="Autocorrelaciones y Running Means de beta_1 para el modelo (1)"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-30"></span>Figura 8.1: Autocorrelaciones y
+<span id="fig:unnamed-chunk-31"></span>Figura 8.1: Autocorrelaciones y
 Running Means de beta_1 para el modelo (1)
 
 </p>
@@ -634,11 +643,11 @@ Running Means de beta_1 para el modelo (1)
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-31-1.png" alt="Autocorrelaciones y Running Means de beta_1 para el modelo (2)"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-32-1.png" alt="Autocorrelaciones y Running Means de beta_1 para el modelo (2)"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-31"></span>Figura 8.2: Autocorrelaciones y
+<span id="fig:unnamed-chunk-32"></span>Figura 8.2: Autocorrelaciones y
 Running Means de beta_1 para el modelo (2)
 
 </p>
@@ -647,11 +656,11 @@ Running Means de beta_1 para el modelo (2)
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-32-1.png" alt="Autocorrelaciones y Running Means de beta_1 para el modelo (3)"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-33-1.png" alt="Autocorrelaciones y Running Means de beta_1 para el modelo (3)"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-32"></span>Figura 8.3: Autocorrelaciones y
+<span id="fig:unnamed-chunk-33"></span>Figura 8.3: Autocorrelaciones y
 Running Means de beta_1 para el modelo (3)
 
 </p>
@@ -660,11 +669,11 @@ Running Means de beta_1 para el modelo (3)
 
 <div class="figure">
 
-<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-33-1.png" alt="Autocorrelaciones y Running Means de beta_1 para el modelo (4)"  />
+<img src="DiscriminaciónSalarial_EstBayesiana_files/figure-gfm/unnamed-chunk-34-1.png" alt="Autocorrelaciones y Running Means de beta_1 para el modelo (4)"  />
 
 <p class="caption">
 
-<span id="fig:unnamed-chunk-33"></span>Figura 8.4: Autocorrelaciones y
+<span id="fig:unnamed-chunk-34"></span>Figura 8.4: Autocorrelaciones y
 Running Means de beta_1 para el modelo (4)
 
 </p>
