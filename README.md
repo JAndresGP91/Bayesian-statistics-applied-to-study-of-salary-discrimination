@@ -108,13 +108,16 @@ $$\pi(\pmb{\beta},~\sigma^2) \propto \frac{1}{\sigma^2}.$$
 Se derivan las distribuciones condicionales de los parámetros (esto se
 hizo en clase). Para $\pmb{\beta}$, se puede mostrar que
 
-$$(y-X \pmb{\beta})^t(y-X \pmb{\beta})=\nu s^2+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}),~~ \nu=n- \# \mbox{columnas de }X~\mbox{y}~s^2=\hat{\sigma}_{OLS}^2.$$
-Entonces, para la distribución a posteriori condicional de $\pmb{\beta}$
+$$(y-X \pmb{\beta})^t(y-X \pmb{\beta})=\nu s^2+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}),~~ \nu=n- \text{\\# de columnas de } X~\mbox{y}~s^2=\hat{\sigma}_{OLS}^2,$$
+
+donde $\hat{\boldsymbol{\beta}}_{OLS}$ y $\sigma_{OLS}^2$ son los estimadores de mínimos cuadrados ordinarios. 
+
+Para la distribución a posteriori condicional de $\pmb{\beta}$
 dados $\sigma^2$ y $y$
 
 $$\begin{align*}
 \pi(\pmb{\beta},~\sigma^2|y) & \propto l(\pmb{\beta},~\sigma^2|y)\pi(\pmb{\beta},~\sigma^2) \\
-& \propto \frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[ -\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t \frac{1}{\sigma^2}(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}) \right) \right] \cdot \frac{1}{\sigma^2} 
+& \propto \frac{1}{(2\pi)^{n/2}(\sigma^2)^{n/2}}\exp \left[-\frac{1}{2} \left( \frac{\nu s^2}{\sigma^2}+ (\pmb{\beta}-\hat{\pmb{\beta}}_{OLS})^t \frac{1}{\sigma^2}(X^tX)(\pmb{\beta}-\hat{\pmb{\beta}}_{OLS}) \right) \right] \cdot \frac{1}{\sigma^2} 
 \end{align*}$$
 
 $$\begin{align*}
