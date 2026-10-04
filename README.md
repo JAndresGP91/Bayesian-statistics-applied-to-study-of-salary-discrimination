@@ -111,7 +111,7 @@ hizo en clase). Para $\boldsymbol{\beta}$, se puede mostrar que
 
 $$(y-X \boldsymbol{\beta})^t(y-X \boldsymbol{\beta})=\nu s^2+ (\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS})^t(X^tX)(\boldsymbol{\beta}-\hat{\boldsymbol{\beta}}_{OLS}),~~ \nu=n-  \text{\\# de columnas de }X~\mbox{y}~s^2=\hat{\sigma}_{OLS}^2,$$
 
-donde $\hat{\boldsymbol{\beta}}_{OLS}$ y $\hat{\sigma}_{OLS}^2$ son los estimadores de mínimos cuadrados ordinarios de $\boldsymbol{\beta}$ y $\sigma^2$.
+donde $\hat{\boldsymbol{\beta}}\_{OLS}$ y $\hat{\sigma}\_{OLS}^2$ son los estimadores de mínimos cuadrados ordinarios de $\boldsymbol{\beta}$ y $\sigma^2$.
 
 Para la distribución a posteriori condicional de $\boldsymbol{\beta}$ dados $\sigma^2$ y $y$
 
@@ -160,7 +160,7 @@ Para muestrear los $\beta_{t+1, i}$ de una $N_k(\hat{\boldsymbol{\beta}}_{OLS},~
 $$L_t^{-1} \boldsymbol{\beta}_{t+1} \sim N_{k+1}(L_t^{-1}\hat{\boldsymbol{\beta}}_{OLS},~ \boldsymbol{I}),$$
 
 
-de esta forma $L^{-1}_t\boldsymbol{\beta}_{t+1}$ se obtiene de muestras aleatorias, y por lo tanto también $\boldsymbol{\beta}_{t+1}$. $L^{*}$ se utiliza para no calcular $L^{-1}_t$ en cada iteración, ya que $L^{-1}_t=\frac{1}{\sigma_t}L^{*-1}$.
+de esta forma $L^{-1}\_t\boldsymbol{\beta}\_{t+1}$ se obtiene de muestras aleatorias, y por lo tanto también $\boldsymbol{\beta}_{t+1}$. $L^{\*}$ se utiliza para no calcular $L^{-1}_t$ en cada iteración, ya que $L^{-1}_t=\frac{1}{\sigma_t}L^{*-1}$.
 
 
 ## 5.6 Revisión de Gráficos
