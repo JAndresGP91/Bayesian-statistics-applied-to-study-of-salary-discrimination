@@ -273,11 +273,11 @@ d_4& =
 además, $years.deg$ = años desde el grado superior y $years.rank=$ años
 en rango actual.
 
-Dado que $d_1=1$ si *sex=female*, y si el factor no tiene interacciones
-con las otras covariables, entonces el coefiente de regresión $\beta_1$
-es igual a la a la diferencia los promedios del log(salario) de una
-mujer con el log(salario) de un hombre que tienen las mismas
-características en cuanto a las otras covariables del modelo. Es decir,
+Dado que $d_1=1$ si *sex=female*, si el factor no tiene interacciones
+con las otras covariables, entonces $\beta_1$
+es igual a la a la diferencia del promedio de $\log(\text{salario})$ de una
+mujer con el de un hombre, donde ambos tienen las mismas
+características (en cuanto a las demás covariables del modelo correspondiente). Es decir,
 
 $$E(y|(x_2, x_3,\ldots, x_k), ~d_1=1)- E(y|(x_2, x_3,\ldots, x_k), ~d_1=0)=\beta_1.$$
 
