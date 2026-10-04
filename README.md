@@ -273,7 +273,7 @@ d_4& =
 además, $years.deg$ = años desde el grado superior y $years.rank=$ años
 en rango actual.
 
-Dado que $d_1=1$ si *sex=female*, si el factor no tiene interacciones
+Dado que $d_1=1$ para *sex=female*, si el factor no tiene interacciones
 con las otras covariables, entonces $\beta_1$
 es igual a la a la diferencia del promedio de $\log(\text{salario})$ de una
 mujer con el de un hombre, donde ambos tienen las mismas
